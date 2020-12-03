@@ -1,11 +1,7 @@
 name: Flow1
 
-on:
-  push:
-    branches: [ master ]
-    paths:
-      - '**'
-      - '!.github/workflows/**'
+on: workflow_dispatch
+
 jobs:
 
   upload:
