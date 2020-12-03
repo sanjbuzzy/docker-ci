@@ -1,6 +1,12 @@
 name: Flow1
-
-on: workflow_dispatch
+on: 
+  workflow_dispatch:
+    inputs:
+      name:
+        description: 'Person to greet'
+        required: true
+        default: 'Mona the Octocat'
+    
 jobs:
 
   upload:
