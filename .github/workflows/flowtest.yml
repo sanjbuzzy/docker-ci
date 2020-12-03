@@ -2,7 +2,7 @@ name: Flow1
 
 on:
   push:
-    branches: [ workflow_test ]
+    branches: [ master ]
     paths:
       - '**'
       - '!.github/workflows/**'
