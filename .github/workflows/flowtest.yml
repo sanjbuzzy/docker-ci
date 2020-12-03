@@ -1,4 +1,4 @@
-name: Docker Image CI BUZZY MAIN
+name: Flow1
 
 on:
   push:
