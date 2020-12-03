@@ -1,1 +1,8 @@
-test
+name: Windows Docker Image CI
+
+on:
+  workflow_run:
+    workflows: ["Build METEOR & Upload to S3"]
+    types: 
+      - completed
+
