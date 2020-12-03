@@ -3,9 +3,9 @@ on:
   workflow_dispatch:
     inputs:
       name:
-        description: 'Person to greet'
+        description: 'Deployed By'
         required: true
-        default: 'Mona the Octocat'
+        default: 'Sanj'
     
 jobs:
 
