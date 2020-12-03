@@ -1,1 +1,21 @@
-test
+name: Docker Image CI BUZZY MAIN
+
+on:
+  push:
+    branches: [ workflow_test ]
+    paths:
+      - '!**'
+      - '!.github/workflows/**'
+
+
+jobs:
+
+  deploy:
+
+    runs-on: ubuntu-latest
+    steps:
+    - name: Sleep for 10 seconds
+      uses: jakejarvis/wait-action@master
+      with:
+        time: '10s'
+    
