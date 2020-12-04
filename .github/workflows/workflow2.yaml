@@ -20,7 +20,7 @@ jobs:
        with:
         args: --acl public-read
        env:
-         FILE: sanj2/sanjtest.txt
+         FILE: sanj2/sanjtest2.txt
          AWS_REGION: 'ap-southeast-2'
          S3_BUCKET: gittestsj
          S3_KEY: sanj
