@@ -1,0 +1,24 @@
+name: Workflow CI 2
+on:
+  push:
+    branches: [ buzzy-production ]
+    
+jobs:
+
+  upload:
+    runs-on: ubuntu-latest
+    steps:
+
+     - uses: actions/checkout@master
+   
+     - name: Upload file to bucket
+       uses: zdurham/s3-upload-github-action@master
+       with:
+        args: --acl public-read
+       env:
+         FILE: sanj2/sanjtest2.txt
+         AWS_REGION: 'ap-southeast-2'
+         S3_BUCKET: gittestsj
+         S3_KEY: sanj
+         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}  
