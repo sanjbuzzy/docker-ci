@@ -2,7 +2,7 @@ name: Workflow CI 2
 
 on:
   workflow_run:
-    workflows: ["Flow1"]
+    workflows: ["Flow12"]
     branches: [workflow_test]
     types:
       - completed
