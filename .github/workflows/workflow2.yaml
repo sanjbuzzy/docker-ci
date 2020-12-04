@@ -2,7 +2,7 @@ name: Workflow CI 2
 
 on:
   workflow_run:
-    workflows: ["Flow12"]
+    workflows: ["Flow1"]
     branches: [workflow_test]
     types:
       - completed
@@ -20,7 +20,7 @@ jobs:
        with:
         args: --acl public-read
        env:
-         FILE: sanj/sanjtest.txt
+         FILE: sanj2/sanjtest.txt
          AWS_REGION: 'ap-southeast-2'
          S3_BUCKET: gittestsj
          S3_KEY: sanj
