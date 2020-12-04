@@ -15,7 +15,7 @@ on:
         default: 'Buzzy DevOps'     
 
 on:
-  pull_request::
+  pull_request:
     branches: 
       - master
     types: [closed] 
