@@ -1,0 +1,23 @@
+name: Merge Master branch to Precisely branch
+
+on:
+  pull_request::
+    branches: 
+      - master
+    types: [closed]      
+
+jobs:
+  merge-with-prod:
+    if: github.event.pull_request.merged == true
+    name: Merge production branch into precisley branch 
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: merge
+        uses: mtanzi/action-automerge@v1
+        id: merge
+        with:
+          github_token: ${{ github.token }}
+          source: 'master'
+          target: 'workflow_test'
