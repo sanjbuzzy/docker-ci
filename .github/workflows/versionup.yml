@@ -5,8 +5,8 @@ on:
     inputs:
       name:
         description: 'Deployed by'
-        required: true
-        default: 'Buzzy DevOps'
+   #     required: true
+   #     default: 'Buzzy DevOps'
 
 jobs:
   build:
