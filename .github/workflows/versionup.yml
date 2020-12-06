@@ -1,0 +1,34 @@
+name: Server Version Up
+
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: 'Deployed by'
+        required: true
+        default: 'Buzzy DevOps'
+
+jobs:
+  build:
+    runs-on: [ubuntu-latest]
+    timeout-minutes: 15
+    steps:
+    - name: checkout repo content
+      uses: actions/checkout@v2 # checkout the repository content to github runner.
+    - name: setup python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.7 #install python 
+    - name: execute py script # run the run.py to update version 
+      run: |
+        python ./.github/scripts/versionup.py
+
+    - name: Commit changes # commit changes to version file
+      uses: EndBug/add-and-commit@v5
+      with:
+        author_name: Sanj
+        author_email: sanj.edirisinghe@buzzy.buzz
+        message: "Bump up version by CI"
+        add: "private/version.json"
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}   
