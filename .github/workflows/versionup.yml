@@ -15,6 +15,8 @@ jobs:
     steps:
     - name: checkout repo content
       uses: actions/checkout@v2 # checkout the repository content to github runner.
+      with:
+        token: ${{secrets.PAT}}
     - name: setup python
       uses: actions/setup-python@v2
       with:
@@ -22,21 +24,12 @@ jobs:
     - name: execute py script # run the run.py to update version 
       run: |
         python ./.github/scripts/versionup.py
-
-   # - name: Commit changes # commit changes to version file
-   #   uses: EndBug/add-and-commit@v5
-   ###  with:
-  #      author_name: Sanj
-  #      author_email: sanj.edirisinghe@buzzy.buzz
-  #      message: "Bump up version by CI"
-  #      add: "private/version.json"
-  #    env:
-  #      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}   
-    - name: Commit version bump
+    
+    - name: Commit version bump      
       run: |
           git config --global user.name 'Sanj Edirisinghe'
           git config --global user.email 'sanj.ediringhe@buzzy.buzz'
-          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY
+          git remote set-url origin https://x-access-token:${{ secrets.PAT }}@github.com/$GITHUB_REPOSITORY
           git checkout "${GITHUB_REF:11}"
           git commit -am "Version Bump"
           git push
