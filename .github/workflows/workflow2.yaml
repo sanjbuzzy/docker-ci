@@ -1,24 +1,11 @@
 name: Workflow CI 2
 
 on:
-  workflow_run:
-    workflows: ["Flow1"]
-    branches: [workflow_test]
-    types:
-      - completed
-on:
-  workflow_dispatch:
-    inputs:
-      name:
-        description: 'Deployed by'
-        required: true
-        default: 'Buzzy DevOps'     
-
-on:
-  pull_request:
-    branches: 
-      - master
-    types: [closed] 
+  push:
+    branches: [ master ]
+    paths:
+        - '**'
+        - '!.github/**' 
     
 jobs:
 
