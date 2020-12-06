@@ -1,4 +1,4 @@
-name: Workflow CI 2
+name: Workflow Deploy CI 2
 
 on:
   push:
