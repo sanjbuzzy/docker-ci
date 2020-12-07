@@ -4,9 +4,9 @@ on:
   workflow_dispatch:
     inputs:
       name:
-        description: 'Deployed by'
+        description: 'The branch selected above should be'
         required: true
-        default: 'Buzzy DevOps'
+        default: 'buzzy-production'
 
 jobs:
   build:
