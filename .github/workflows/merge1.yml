@@ -1,18 +1,18 @@
 name: Merge Master branch to Precisely branch
 
-#on:
-#  pull_request:
-#    branches: 
-#      - master
-#    types: [closed]      
-
 on:
-  workflow_dispatch:
-    inputs:
-      name:
-        description: 'Selected Branch is'
-        required: true
-        default: 'test'
+  pull_request:
+    branches: 
+      - master
+    types: [closed]      
+
+#on:
+#  workflow_dispatch:
+#    inputs:
+#     name:
+#        description: 'Selected Branch is'
+#        required: true
+#        default: 'test'
 jobs:
   merge-with-prod:
     if: github.event.pull_request.merged == true
