@@ -7,20 +7,21 @@ jobs:
   upload:
     runs-on: ubuntu-latest
     steps:
-     - name : checkout
-       uses: actions/checkout@v1
-     - run:
-          | 
-            ls sanj
-            mkdir $HOME/windowsbuild
-            mv sanj/sanjtest.txt $HOME/windowsbuild/sanjtest2.txt  
-            ls /home/runner/windowsbuild
+    # - name : checkout
+    #   uses: actions/checkout@v1
+    # - run:
+    #      | 
+    #        ls sanj
+    #        mkdir $HOME/windowsbuild
+    #        mv sanj/sanjtest.txt $HOME/windowsbuild/sanjtest2.txt  
+    #        ls /home/runner/windowsbuild
      
      - name : upload files
        uses: actions/checkout@master   
      - uses: zdurham/s3-upload-github-action@master
        env:
-         FILE: /home/runner/windowsbuild/sanjtest2.txt
+         #FILE: /home/runner/windowsbuild/sanjtest2.txt
+         FILE: sanj/sanjtest.txt
          AWS_REGION: 'ap-southeast-2'
          S3_BUCKET: sj-flowtest
          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
