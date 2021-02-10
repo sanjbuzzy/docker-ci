@@ -7,7 +7,8 @@ jobs:
   upload:
     runs-on: ubuntu-latest
     steps:
-     - uses: actions/checkout@v1
+     - name : checkout
+       uses: actions/checkout@v1
      - run:
           | 
             ls sanj
@@ -15,9 +16,9 @@ jobs:
             mv sanj/sanjtest.txt $HOME/windowsbuild/sanjtest2.txt  
             ls $HOME/windowsbuild
      
-     - uses: actions/checkout@master   
-     - name: Upload file to bucket
-       uses: zdurham/s3-upload-github-action@master
+     - name : upload files
+       uses: actions/checkout@master   
+     - uses: zdurham/s3-upload-github-action@master
        env:
          FILE: sanj/sanjtest2.txt
          AWS_REGION: 'ap-southeast-2'
