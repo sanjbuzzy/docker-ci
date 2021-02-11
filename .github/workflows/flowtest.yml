@@ -11,9 +11,8 @@ jobs:
        uses: actions/checkout@v1
      - run:
           | 
-            ls sanj
             mv sanj/sanjtest.txt sanj/sanjtest2.txt  
-            ls /home/runner/windowsbuild
+            ls sanj
      
      - name : upload files
        uses: actions/checkout@master   
