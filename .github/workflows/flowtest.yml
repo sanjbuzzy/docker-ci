@@ -2,7 +2,7 @@ name: Flow1
 
 on:
     repository_dispatch:
-        types: [start-example-workflow]
+        types: [my-event]
 
 jobs:
 
