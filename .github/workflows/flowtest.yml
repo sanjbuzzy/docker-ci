@@ -2,7 +2,7 @@ name: Flow1
 
 on:
     repository_dispatch:
-        types: [my-event]
+        types: [galaxy-server-event]
 
 jobs:
 
