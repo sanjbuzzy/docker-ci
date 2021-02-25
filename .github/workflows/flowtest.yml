@@ -3,7 +3,7 @@ name: Flow1
 on:
     repository_dispatch:
      #   rowId: [Buzzy]
-         deployment_type: [Test]    
+         event_type: [Test]    
 jobs:
 
   upload:
