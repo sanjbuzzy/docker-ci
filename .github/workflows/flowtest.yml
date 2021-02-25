@@ -2,7 +2,7 @@ name: Flow1
 
 on:
     repository_dispatch:
-        types: [galaxy-server-event]
+        rowId: [Buzzy]
 
 jobs:
 
