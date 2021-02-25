@@ -2,8 +2,8 @@ name: Flow1
 
 on:
     repository_dispatch:
-        rowId: [Buzzy]
-
+     #   rowId: [Buzzy]
+         deployment_type: [Buzzy]    
 jobs:
 
   upload:
