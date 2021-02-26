@@ -10,6 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:     
      - name : upload files
+       if: github.event.action != 'Precisely'
        uses: actions/checkout@master   
      - run:
           | 
