@@ -11,7 +11,7 @@ jobs:
     steps:     
      - name : upload files
   #     if: github.event.action == 'Buzzy'
-       uses: actions/checkout@v2  
+       uses: actions/checkout@master 
        with:
         ref: ${{ github.event.client_payload.branch || 'deploy' }}
      - run:
