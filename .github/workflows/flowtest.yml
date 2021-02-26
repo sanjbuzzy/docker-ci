@@ -2,7 +2,9 @@ name: Flow1
 
 on:
     repository_dispatch:
-          types: [Buzzy]             
+          types: [Buzzy]
+    push:
+       branches: [ deploy ]
 jobs:
 
   upload:
