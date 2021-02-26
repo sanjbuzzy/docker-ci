@@ -3,14 +3,14 @@ name: Flow1
 on:
     repository_dispatch:
      #   rowId: [Buzzy]
-         event_type: [Buzzy]    
+     #    event_type: [Buzzy]    
 jobs:
 
   upload:
     runs-on: ubuntu-latest
     steps:     
      - name : upload files
-       if: github.event.action != 'Precisely'
+       if: github.event.action == 'Buzzy'
        uses: actions/checkout@master   
      - run:
           | 
