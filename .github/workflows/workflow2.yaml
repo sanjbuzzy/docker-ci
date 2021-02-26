@@ -3,10 +3,10 @@ name: Workflow Deploy CI 2
 on:
   push:
     branches:
-      - deploy
+      - deploy1
   pull_request:
     branches:
-      - deploy
+      - deploy1
     
 jobs:
 
