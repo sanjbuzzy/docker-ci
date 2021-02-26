@@ -2,9 +2,7 @@ name: Flow1
 
 on:
     repository_dispatch:
-          types: [Buzzy]   
-          branches:
-            - deploy
+          types: [Buzzy]             
 jobs:
 
   upload:
@@ -12,7 +10,7 @@ jobs:
     steps:     
      - name : upload files
   #     if: github.event.action == 'Buzzy'
-       uses: actions/checkout@master 
+       uses: actions/checkout@v2
        with:
         ref: ${{ github.event.client_payload.branch || 'deploy' }}
      - run:
