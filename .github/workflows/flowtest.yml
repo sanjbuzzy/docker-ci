@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:     
      - name : upload files
-       if: github.event.action == 'Buzzy'
+  #     if: github.event.action == 'Buzzy'
        uses: actions/checkout@master   
      - run:
           | 
