@@ -18,7 +18,7 @@ jobs:
      - run:
           | 
             mkdir -p sanj2
-            mv sanj/sanjtest.txt sanj2/sanjtest2.txt  
+            mv sanj/sanjtest1.txt sanj2/sanjtest2.txt  
             ls 
             pwd
      - uses: zdurham/s3-upload-github-action@master
