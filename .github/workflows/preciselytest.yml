@@ -2,7 +2,7 @@ name: Flow1
 
 on:
     repository_dispatch:
-          types: [Buzzy]
+          types: [Precisely]
     push:
        branches: [ deploy ]
 jobs:
@@ -11,7 +11,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:     
      - name : upload files
-  #     if: env.BRANCH_NAME_LOWERCASE == 'develop' || env.BRANCH_NAME_LOWERCASE == 'master'
   #     if: github.event.action == 'Buzzy'
        uses: actions/checkout@v2
        with:
