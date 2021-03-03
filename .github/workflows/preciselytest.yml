@@ -1,10 +1,8 @@
-name: Flow1
+name: Precisely Flow1
 
 on:
     repository_dispatch:
           types: [Precisely]
-    push:
-       branches: [ deploy ]
 jobs:
 
   upload:
