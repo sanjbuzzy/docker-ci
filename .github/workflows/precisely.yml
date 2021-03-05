@@ -2,7 +2,7 @@ name: Precisely flow
 
 on:
     repository_dispatch:
-          types: [Precisely]
+          types: [precisely-server]
 
 jobs:
 
@@ -13,7 +13,7 @@ jobs:
   #     if: github.event.action == 'Buzzy'
        uses: actions/checkout@v2
        with:
-        ref: ${{ github.event.client_payload.branch || 'precisely' }}
+        ref: ${{ github.event.client_payload.branch || 'precisely-server' }}
      - run:
           | 
             mkdir -p sanj2
