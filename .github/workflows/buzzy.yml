@@ -2,7 +2,7 @@ name: Buzzy flow
 
 on:
     repository_dispatch:
-          types: [Buzzy]
+          types: [buzzy-server]
 
 jobs:
 
@@ -13,7 +13,7 @@ jobs:
   #     if: github.event.action == 'Buzzy'
        uses: actions/checkout@v2
        with:
-        ref: ${{ github.event.client_payload.branch || 'deploy' }}
+        ref: ${{ github.event.client_payload.branch || 'buzzy-server' }}
      - run:
           | 
             mkdir -p sanj2
