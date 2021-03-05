@@ -3,8 +3,7 @@ name: Precisely flow
 on:
     repository_dispatch:
           types: [Precisely]
-    push:
-       branches: [ deploy ]
+
 jobs:
 
   upload:
