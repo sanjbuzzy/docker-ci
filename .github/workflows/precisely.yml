@@ -2,7 +2,7 @@ name: Precisely flow
 
 on:
     repository_dispatch:
-          types: [Precisely]
+          types: [SSC Server]
 
 jobs:
 
