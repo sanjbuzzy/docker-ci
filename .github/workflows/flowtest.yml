@@ -1,4 +1,4 @@
-name: Flow1
+name: Buzzy flow
 
 on:
     repository_dispatch:
