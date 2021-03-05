@@ -1,0 +1,37 @@
+name: Precisely flow
+
+on:
+    repository_dispatch:
+          types: [Precisely]
+    push:
+       branches: [ deploy ]
+jobs:
+
+  upload:
+    runs-on: ubuntu-latest
+    steps:     
+     - name : upload files
+  #     if: github.event.action == 'Buzzy'
+       uses: actions/checkout@v2
+       with:
+        ref: ${{ github.event.client_payload.branch || 'precisely' }}
+     - run:
+          | 
+            mkdir -p sanj2
+            mv sanj/sanjtest.txt sanj2/precisely.txt  
+            ls 
+            pwd
+     - uses: zdurham/s3-upload-github-action@master
+       env:
+         #FILE: /home/runner/windowsbuild/sanjtest2.txt
+         FILE: sanj2/precisely.txt 
+         AWS_REGION: 'ap-southeast-2'
+         S3_BUCKET: 'sj-flowtest'
+         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}  
+         
+     - name: SendGrid
+       uses: peter-evans/sendgrid-action@v1
+       env:
+         SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY }}
+         SCRIPT_FILEPATH: ./.github/scripts/sendgrid.js
