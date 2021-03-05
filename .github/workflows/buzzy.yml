@@ -2,7 +2,7 @@ name: Buzzy flow
 
 on:
     repository_dispatch:
-          types: [buzzy-server]
+          types: [Buzzy Server]
 
 jobs:
 
