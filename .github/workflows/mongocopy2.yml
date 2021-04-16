@@ -29,6 +29,6 @@ jobs:
               sudo mkdir -p mongodata
               cd mongodata 
               #sudo mongo "mongodb+srv://buzzytest.yvjew.azure.mongodb.net"
-              mongodump --uri="mongodb+srv://buzzyuser:OH70GAX9TJCMNijk@buzzytest.yvjew.azure.mongodb.net/buzzy?retryWrites=true&w=majority"
+              sudo mongodump --uri="mongodb+srv://buzzyuser:OH70GAX9TJCMNijk@buzzytest.yvjew.azure.mongodb.net/buzzy?retryWrites=true&w=majority"
               sudo cd ..
               sudo rm -rf mongodata
