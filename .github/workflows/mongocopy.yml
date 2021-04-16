@@ -1,4 +1,4 @@
-name: Buzzy flow
+name: mongo dump
 
 on:
   workflow_dispatch:
