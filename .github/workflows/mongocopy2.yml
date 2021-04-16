@@ -24,6 +24,7 @@ jobs:
               sudo apt-get install -y mongodb-org-shell
 
       - name: Test mongo connection
+      - shell: bash
         env: 
             MONGODBURI : ${{ secrets.MONGODBURI }}
         run:  
@@ -31,5 +32,5 @@ jobs:
               sudo mkdir -p mongodata
               cd mongodata 
               #sudo mongo "mongodb+srv://buzzytest.yvjew.azure.mongodb.net"
-              sudo mongodump --uri="$env:MONGODBURI"
+              sudo mongodump --uri="$MONGODBURI"
               sudo rm -rf *
