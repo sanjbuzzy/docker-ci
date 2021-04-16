@@ -33,5 +33,5 @@ jobs:
               #sudo mongo "mongodb+srv://buzzytest.yvjew.azure.mongodb.net"
               sudo mongodump --uri="$MONGODBURI"
               sudo ls 
-              mongorestore --uri="mongodb+srv://restoreuser:DiirdCol552004@cluster0.kaqrz.azure.mongodb.net/myFirstDatabase?retryWrites=true&w=majority" /mongodata
+              sudo mongorestore --uri="mongodb+srv://restoreuser:DiirdCol552004@cluster0.kaqrz.azure.mongodb.net/myFirstDatabase?retryWrites=true&w=majority" /mongodata
               sudo rm -rf *
