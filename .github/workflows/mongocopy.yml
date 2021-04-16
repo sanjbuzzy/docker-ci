@@ -24,7 +24,8 @@ jobs:
              
      - run:
           | 
+            export MONGOURL = "mongodb+srv://buzzyapp2:DJ70GAX9TJCMNijk@cluster0.dlopt.mongodb.net/buzzy?retryWrites=true&w=majority" 
             mkdir -p mongodump
             cd mongodump
-            mongodump --uri = "mongodb+srv://buzzyapp2:DJ70GAX9TJCMNijk@cluster0.dlopt.mongodb.net/buzzy?retryWrites=true&w=majority"
+            mongodump --uri = MONGOURL
 
