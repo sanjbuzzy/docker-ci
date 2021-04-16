@@ -24,7 +24,4 @@ jobs:
               sudo apt-get install -y mongodb-org-shell
 
       - name: Test mongo connection
-        run:  
-            |
-              #sudo mongo "mongodb+srv://buzzytest.yvjew.azure.mongodb.net"
-              mongodump --uri="mongodb+srv://buzzyuser:OH70GAX9TJCMNijk@cluster0-bvmnd.mongodb.net/buzzyapp?retryWrites=true&w=majority"
+        run:  sudo mongodump ="mongodb+srv://buzzytest.yvjew.azure.mongodb.net"
