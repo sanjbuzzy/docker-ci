@@ -24,5 +24,5 @@ jobs:
               sudo apt-get install -y mongodb-org-shell
 
       - name: Test mongo connection
-        run: "sudo mongo 'mongodb+srv://cluster0.dlopt.mongodb.net/buzzy?retryWrites=true&w=majority'"
+        run: "sudo mongo 'mongodb+srv://buzzyapp2:DJ70GAX9TJCMNijk@buzzytest-shard-00-00.yvjew.azure.mongodb.net:27017'"
 
