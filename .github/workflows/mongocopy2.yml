@@ -15,13 +15,14 @@ jobs:
     runs-on: ubuntu-latest
     name: Test mongo-action
     steps:
-      - name: Create mongo Docker container
-        id: build_mongo_docker
-        uses: DigiPie/mongo-action@v1.0.1
-        with:
-          image-version: latest
-          port: 27017
+      - name: install mongo shell
+        run: 
+             |
+              sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 9DA31620334BD75D9DCB49F368818C72E52529D4
+              echo "deb [ arch=amd64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.0.lis
+              sudo apt-get update
+              sudo apt-get install -y mongodb-org-shell
+
       - name: Test mongo connection
-        id: test_mongo_connection
         run: "sudo mongo 'mongodb+srv://buzzyapp2:DJ70GAX9TJCMNijk@cluster0.dlopt.mongodb.net/buzzy?retryWrites=true&w=majority'"
 
