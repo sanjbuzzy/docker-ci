@@ -13,9 +13,7 @@ jobs:
 
   build:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        mongodb-version: [4.0, 4.2, 4.4]
+   
     steps:     
      - name : Git checkout 
        uses: actions/checkout@v2
@@ -23,12 +21,10 @@ jobs:
   #      ref: ${{ github.event.client_payload.branch || 'Master' }}
      - name: Start MongoDB
        uses: supercharge/mongodb-github-action@1.3.0
-       with:
-          mongodb-version: ${{ matrix.mongodb-version }} 
-      
+             
      - run:
           | 
             mkdir -p mongodump
             cd mongodump
-            mongodump --uri="mongodb+srv://buzzyuser:OH70GAX9TJCMNijk@cluster0-bvmnd.mongodb.net/buzzyapp?retryWrites=true&w=majority"
+            mongodump --uri = "mongodb+srv://buzzyapp2:DJ70GAX9TJCMNijk@cluster0.dlopt.mongodb.net/buzzy?retryWrites=true&w=majority"
 
