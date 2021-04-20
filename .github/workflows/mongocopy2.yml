@@ -31,4 +31,3 @@ jobs:
               sudo mongodump --uri="$MONGODBURI"
               sudo ls 
               sudo mongorestore --uri="mongodb+srv://restoreuser:DiirdCol552004@cluster0.kaqrz.azure.mongodb.net/myFirstDatabase?retryWrites=true&w=majority" dump/buzzy
-              sudo rm -rf dump
