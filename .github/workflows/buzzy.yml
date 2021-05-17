@@ -35,7 +35,7 @@ jobs:
             git config --global user.name 'buzzydevops'
             git config --global user.email 'devops@buzzy.buzz'
             git commit -am "Android version bump by CI"
-            git push origin buzzy-app-deployment
+            git push origin buzzy
 
      - name: Push changes
        uses: ad-m/github-push-action@master
