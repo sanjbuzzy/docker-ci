@@ -33,9 +33,9 @@ jobs:
          
      - name: Commit changes
        run: |
-            git config --global user.name 'buzzydevops'
-            git config --global user.email 'devops@buzzy.buzz'
-            git commit -am "Android version bump by CI"
+            git config --global user.name 'sanjbuzzy'
+            git config --global user.email 'sanj.edirisinghe@buzzy.buzz'
+            git commit -am "bump by Sanj CI"
             git push origin deploy
 
      - name: Push changes
