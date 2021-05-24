@@ -5,27 +5,44 @@ on:
     branches: [master1]
 
 jobs:
-  start:
-    runs-on: windows-2019
+   ec2start:
+      name: ec2-start
+      runs-on: ubuntu-latest
+      timeout-minutes: 5
 
-    steps:
-    - uses: actions/checkout@v1
-    - name: Run a one-line script
-      run: ./.github/scripts/winimage_build.ps1
-      shell: powershell
+      steps: 
+        - name: Checkout 
+          uses: actions/checkout@v2
 
-    - name: AWS SSM Send-Command
-      uses: peterkimzz/aws-ssm-send-command@master
-      id: ssm
-      with:
-          aws-region: ap-southeast-2
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          instance-ids: ${{ secrets.INSTANCE_ID }}
+        - name: Configure AWS credentials
+          uses: aws-actions/configure-aws-credentials@v1
+          with:
+            aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+            aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+            aws-region: ap-southeast-2    
 
-          working-directory: C:\Users\Administrator\Documents\GitHub\buzzy7
-          command: ls -al
-          comment: Hello world!
+        - name: EC2 start
+          run: |
+                  aws ec2 start-instances --instance-ids i-09c327df436d94abb  
+  
+    windows-compile:
+        runs-on: windows-2019
+        needs: ec2start
+
+        steps:
+
+        - name: AWS SSM Send-Command
+          uses: peterkimzz/aws-ssm-send-command@master
+          id: ssm
+          with:
+              aws-region: ap-southeast-2
+              aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+              aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+              instance-ids: ${{ secrets.INSTANCE_ID }}
+
+              working-directory: C:\Users\Administrator\Documents\GitHub\buzzy7
+              command: ls -al
+              comment: Run Win Image Buils Script!
 
     # Catch SSM outputs
     - name: Get the outputs
